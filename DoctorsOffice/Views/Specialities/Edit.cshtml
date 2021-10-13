@@ -1,0 +1,20 @@
+@model DoctorsOffice.Models.Specialty
+
+<h2>Edit</h2>
+
+<h4>Edit this Speciality Name: @Html.DisplayFor(model => model.Name)</h4>
+@* <h4>Edit this Speciality Specility: @Html.DisplayFor(model => model.Specialty)</h4> *@
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.SpecialtyId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+  @* @Html.LabelFor(model => model.Specialty)
+  @Html.EditorFor(model => model.Specialty) *@
+
+
+  <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>
