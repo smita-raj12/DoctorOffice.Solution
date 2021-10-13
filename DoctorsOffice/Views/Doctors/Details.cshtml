@@ -25,6 +25,22 @@ else
   }
   </ul>
 }
+@if(@Model.Specialties.Count == 0)
+{
+  <p>This Doctor does not have any specialties.</p>
+}
+else
+{
+  <h4>Assigned Specialties</h4>
+  <ul>
+  @foreach(var join in Model.Specialties)
+  {
+    <li>@join.Specialty.Name
+    @* @Html.ActionLink("Delete", "DeleteSpecialty", "Specialities", new { joinId = @join.SpecialtyDoctorId , DoctorId = Model.DoctorId }) *@
+    </li>
+  }
+  </ul>
+}
 <p>@Html.ActionLink("Add a specilty", "AddSpecialty", new { id = Model.DoctorId })</p>
 <p>@Html.ActionLink("Back to doctors", "Index")</p>
 <p>@Html.ActionLink("Edit Doctor", "Edit", new { id = Model.DoctorId })</p>

@@ -70,13 +70,13 @@ namespace DoctorsOffice.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    // [HttpPost]
-    // public ActionResult DeleteSpecialty(int joinId)
-    // {
-    //   var joinEntry = _db.SpecialtyDoctor.FirstOrDefault(entry => entry.SpecialtyDoctorId == joinId);
-    //   _db.SpecialtyDoctor.Remove(joinEntry);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult DeleteSpecialty(int joinId)
+    {
+      var joinEntry = _db.SpecialtyDoctor.FirstOrDefault(entry => entry.SpecialtyDoctorId == joinId);
+      _db.SpecialtyDoctor.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
